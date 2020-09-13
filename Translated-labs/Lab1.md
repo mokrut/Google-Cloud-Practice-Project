@@ -12,15 +12,24 @@ In this lab, you learn how to;
 - Create VM instances using Compute Engine
 - Explore the connectivity for VM instances across VPC networks
 
-### Sign in to the Google Cloud Platform (GCP) Console
-To meet the above objectives you have to sign into your [google cloud console](https://console.cloud.google.com)
+To accomplish the above objectives you have to sign into your [google cloud console](https://console.cloud.google.com)
+
+##### **Warning** You might incure costs by following these instructions. 
+
+> **Note:** When required, always set your default project and compute zone in cloud Shell replacing *PROJRCT_ID* with your actual project ID and *COMPUTER/ZONE* with your actual zone when requied in the commands below:
+
+`gcloud config set project PROJECTID`
+
+`gcloud config set compute/zone COMPUTER/ZONE`
+
+> - **All the tasks are carried out in the Cloud Shell unless told to use another tool.**
 
 ### Task 1: Explore the default network
 - In GCP console, on the top right toolbar, click the **Open Cloud Shell** button,  Click **Continue** if prompted.
 
 - Set the your default project by replacing *PROJECTID* with actual Project ID in the command;
 
-`gcloud config set project <PROJECTID>`
+`gcloud config set project PROJECTID`
 
 > Each Google Cloud project has a default network with subnets, routes, and firewall rules.
 
