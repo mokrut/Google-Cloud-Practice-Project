@@ -9,7 +9,6 @@ Authored by: [Michael Okurut](https://github.com/mokrut/)
 2. **[Translation](Translated-labs)** of **2-3** selected labs from Console instructions to **100%** command line instructions.
 3. Document in a **[Github repository](https://github.com/mokrut/Google-Cloud-Practice-Project/)**  the above Results.
 
-
 ## Translated Labs
 
 1. Lab1: [VPC Networking.](Translated-labs/Lab1.md)
