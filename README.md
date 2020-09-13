@@ -5,7 +5,7 @@ This is a documentation Practise for ALC GADS 2020 Scholarship program.
 Authored by: [Michael Okurut](https:github.com/OsteenMichaels) 
 
 ### Challenge Tasks
-1. Complete of **10-15** selected hands-on labs on Qwiklabs and submitting proof of such per **[screenshot](lab-screenshots.md)** based on the Qwiklabs emails received.
+1. Complete of **10-15** selected hands-on labs on Qwiklabs and submitting proof of such per **[screenshot](Lab-screenshots.md)** based on the Qwiklabs emails received.
 2. Translation” of **2-3** selected labs from Console instructions to **100%** command line instructions.
 3. Document in a **Github repository**  the above Results.
 
