@@ -2,21 +2,12 @@
 ## Google Cloud Practice Project
 This is a documentation Practise for ALC GADS 2020 Scholarship program.
 
-<<<<<<< HEAD
-Authored by: [Michael Okurut](https:github.com/mokrut) 
-
-### Challenge Tasks
-1. Complete of **10-15** selected hands-on labs on Qwiklabs and submitting proof of such per **[screenshot](Lab-screenshots.md)** based on the Qwiklabs emails received.
-2. [Translation](Translated-labs) of **2-3** selected labs from Console instructions to **100%** command line instructions.
-3. Document in a **Github repository**  the above Results.
-=======
-Authored by: [Michael Okurut](https://github.com/mokrut) 
+Authored by: **Michael Okurut** 
 
 ### Challenge Tasks
 1. Complete of **10-15** selected hands-on labs on Qwiklabs and submitting proof of such per **[screenshot](Lab-screenshots.md)** based on the Qwiklabs emails received.
 2. **[Translation](Translated-labs)** of **2-3** selected labs from Console instructions to **100%** command line instructions.
 3. Document in a **[Github repository](https://github.com/mokrut/Google-Cloud-Practice-Project/)**  the above Results.
->>>>>>> f5d1808c091c45468fddafa7b5f9c0ec889af4f3
 
 
 ## Translated Labs
