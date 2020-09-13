@@ -2,19 +2,19 @@
 ## Google Cloud Practice Project
 This is a documentation Practise for ALC GADS 2020 Scholarship program.
 
-Authored by: [Michael Okurut](https:github.com/OsteenMichaels) 
+Authored by: [Michael Okurut](https:github.com/mokrut) 
 
 ### Challenge Tasks
 1. Complete of **10-15** selected hands-on labs on Qwiklabs and submitting proof of such per **[screenshot](Lab-screenshots.md)** based on the Qwiklabs emails received.
-2. Translation” of **2-3** selected labs from Console instructions to **100%** command line instructions.
+2. [Translation](Translated-labs) of **2-3** selected labs from Console instructions to **100%** command line instructions.
 3. Document in a **Github repository**  the above Results.
 
 
 ## Translated Labs
 
-1. Lab1: [VPC Networking.](Translated-labs/Lab1)
-2. Lab2: [AK8S-03 Creating a GKE Cluster via GCP Console.](Translated-labs/Lab2)
-3. Lab3: [Google Cloud Fundamentals: Getting Started with GKE.](Translated-labs/Lab3)
+1. Lab1: [VPC Networking.](Translated-labs/Lab1.md)
+2. Lab2: [AK8S-03 Creating a GKE Cluster via GCP Console.](Translated-labs/Lab2.md)
+3. Lab3: [Google Cloud Fundamentals: Getting Started with GKE.](Translated-labs/Lab3.md)
 
 
 ## Completed Labs
