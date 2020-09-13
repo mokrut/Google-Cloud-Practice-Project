@@ -36,7 +36,8 @@ No. | Lab |
 
 
 ### Special Thanks to;
-+ The Google Cloud Teams.
-+ The ALC Teams
-+ The ALC Mentors.
-+ The Qwiklabs Teams
++ **The Google Cloud Teams.**
++ **The ALC Teams**
++ **The ALC Mentors.**
++ **The Qwiklabs Teams.**
+#
