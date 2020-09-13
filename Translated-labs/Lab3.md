@@ -9,64 +9,96 @@ In this lab, you learn how to perform the following tasks:
 + Provision a Kubernetes cluster using Kubernetes Engine.
 + Deploy and manage Docker containers using kubectl.
 
-### Sign in to the Google Cloud Platform (GCP) Console
-To meet the above objectives you have to sign into your [google cloud console](https://console.cloud.google.com).
+To accomplish the above objectives you have to sign into your [google cloud console](https://console.cloud.google.com)
+
+##### **Warning** You might incure costs by following these instructions. 
+
+> **Note:** When required, always set your default project and compute zone in cloud Shell replacing *PROJRCT_ID* with your actual project ID and *COMPUTER/ZONE* with your actual zone when requied in the commands below:
+
+`gcloud config set project PROJECTID`
+
+`gcloud config set compute/zone COMPUTER/ZONE`
+
+> - **All the tasks are carried out in the Cloud Shell unless told to use another tool.**
 
 ### Task 1: Confirm that needed APIs are enabled
-1. Make a note of the name of your GCP project. This value is shown in the top bar of the Google Cloud Platform Console. It will be of the form `qwiklabs-gcp-` followed by hexadecimal numbers.
-2. In GCP console, on the top right toolbar, click the **Open Cloud Shell** button.
-3. Click **Continue**.
-4. Confirm if the Kubernetes Engine API and Container Registry API are enabled using 
-> `gcloud services list --available`.
-5. If you don't see the API listed, that means you haven't been granted access to enable the API. Using the API name from the previous step, enable it with 
-> `gcloud services enable SERVICE_NAME`
+- In GCP console, on the top right toolbar, click the **Open Cloud Shell** button.
+- Click **Continue** if prompted.
 
-Leave the cloud console open for the next tasks.
+#### Confirm if the Kubernetes Engine API and Container Registry API are enabled using .
 
-### Task 2: Start a Kubernetes Engine cluster
-1. For convenience, place the zone that Qwiklabs assigned you to into an environment variable called MY_ZONE. At the Cloud Shell prompt, type this partial command:
-> `export MY_ZONE=`.
-2. followed by the zone that Qwiklabs assigned to you. Your complete command will look similar to this: 
-> `export MY_ZONE=us-central1-a`.
-3. Start a Kubernetes cluster managed by Kubernetes Engine. Name the cluster webfrontend and configure it to run 2 nodes: 
-> `gcloud container clusters create webfrontend --zone $MY_ZONE --num-nodes 2`.
+Use the command below to confirm the available APIs.
+
+`gcloud services list --available`
+
+- If you don't see Kubernetes Engine API and Container Registry API listed, then you have to activate them using the commands below replacing *SERVICE_NAME* with the respective service that you want to activate. 
+
+`gcloud services enable SERVICE_NAME`
+
+### Task 2: Start a Kubernetes Engine cluster.
+
+- For convenience, place the your zone into an environment variable called MY_ZONE.Type this command replacing *COMPUTER/ZONE* with your actual zone.
+
+`export MY_ZONE=COMPUTER/ZONE`.
+
+#### Start a Kubernetes cluster. 
+Start a Kubernetes cluster managed by Kubernetes Engine. Name the cluster webfrontend and configure it to run 2 nodes: 
+Your command should look like this 
+
+`gcloud container clusters create webfrontend --zone $MY_ZONE --num-nodes 2`.
 
 > It takes several minutes to create a cluster as Kubernetes Engine provisions virtual machines for you.
-4. After the cluster is created, check your installed version of Kubernetes using the kubectl version command:
-> `kubectl version`
-5. The gcloud container clusters create command automatically authenticated kubectl for you.
-6. View your running nodes using 
+- After the cluster is created, check your installed version of Kubernetes using the kubectl version command:
+
+`kubectl version`
+
+- The gcloud container clusters create command automatically authenticated kubectl for you.
+- View your running nodes using 
 > `kubectl get pods` 
 
 > Your Kubernetes cluster is now ready for use.
-### Task 3: Run and deploy a container
-1. From your Cloud Shell prompt, launch a single instance of the nginx container. (Nginx is a popular web server).
-> `kubectl create deploy nginx --image=nginx:latest`
 
-In Kubernetes, all containers run in pods. This use of the kubectl create command caused Kubernetes to create a deployment consisting of a single pod containing the nginx container. A Kubernetes deployment keeps a given number of pods up and running even in the event of failures among the nodes on which they run. In this command, you launched the default number of pods, which is 1.
+### Task 3: Run and deploy a container
+- Launch a single instance of the nginx container. (Nginx is a popular web server). Use:
+
+`kubectl create deploy nginx --image=nginx:latest`
+
+> In Kubernetes, all containers run in pods. kubectl created command a deployment consisting of a single pod containing the nginx container. A Kubernetes deployment keeps a given number of pods up and running even in the event of failures among the nodes on which they run.
 
 **Note:** If you see any deprecation warning about future version you can simply ignore it for now and can proceed further.
-2. View the pod running the nginx container:
-> `kubectl get pods`
-3. Expose the nginx container to the Internet:
-> `kubectl expose deployment nginx --port 80 --type LoadBalancer`
 
-Kubernetes created a service and an external load balancer with a public IP address attached to it. The IP address remains the same for the life of the service. Any network traffic to that public IP address is routed to pods behind the service: in this case, the nginx pod.
-4. View the new service:
-> `kubectl get services`
+- To View the pod running the nginx container: Run
 
-You can use the displayed external IP address to test and contact the nginx container remotely.
-It may take a few seconds before the External-IP field is populated for your service. This is normal. Just re-run the kubectl get services command every few seconds until the field is populated.
-5. Open a new web browser tab and paste your cluster's external IP address into the address bar. The default home page of the Nginx browser is displayed.
-6. Scale up the number of pods running on your service:
-> `kubectl scale deployment nginx --replicas 3`
+`kubectl get pods`
+
+- Expose the nginx container to the Internet using: 
+
+`kubectl expose deployment nginx --port 80 --type LoadBalancer`
+
+> Kubernetes created a service and an external load balancer with a public IP address attached to it. The IP address remains the same for the life of the service. Any network traffic to that public IP address is routed to pods behind the service: in this case, the nginx pod.
+
+- View the new service by running:
+
+`kubectl get services`
+
+> You can use the displayed external IP address to test and contact the nginx container remotely. It may take a few seconds before the External-IP field is populated for your service. This is normal. Just re-run the kubectl get services command every few seconds until the field is populated.
+
+- Open a new web browser tab and paste your cluster's external IP address into the address bar. The default home page of the Nginx browser is displayed.
+
+- Scale up the number of pods running on your service to 3:
+
+`kubectl scale deployment nginx --replicas 3`
 
 Scaling up a deployment is useful when you want to increase available resources for an application that is becoming more popular.
 
-7. Confirm that Kubernetes has updated the number of pods:
-> `kubectl get pods`
-8. Confirm that your external IP address has not changed:
-> `kubectl get services`
-9. Return to the web browser tab in which you viewed your cluster's external IP address. Refresh the page to confirm that the nginx web server is still responding.
+- Confirm that Kubernetes has updated the number of pods:
 
-Exit and disable all the resources that you wont need to avoid charges.
+`kubectl get pods`
+
+- Confirm that your external IP address has not changed:
+
+`kubectl get services`
+
+- Return to the web browser tab in which you viewed your cluster's external IP address. Refresh the page to confirm that the nginx web server is still responding.
+
+Exit and disable or delete all the resources that you wont need to avoid charges.
